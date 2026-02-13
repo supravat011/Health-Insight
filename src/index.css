@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DevelopHealth.ai Inspired Design System - Bold Swiss Style */
+
+@layer base {
+  :root {
+    /* Base Colors - High Contrast */
+    --background: 0 0% 100%;
+    /* Pure White */
+    --foreground: 0 0% 0%;
+    /* Pure Black */
+
+    /* Cards - Sharp & Flat */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Primary - Flame Red */
+    --primary: 16 100% 50%;
+    /* #FF4500 approx */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light Gray */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+
+    /* Muted */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Accent - Bright Yellow */
+    --accent: 48 100% 50%;
+    /* #FFC107 approx */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 48 100% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 16 100% 50%;
+
+    --radius: 0rem;
+    /* Sharp corners like Swiss design */
+
+    /* Chart Colors - High Contrast */
+    --chart-1: 16 100% 50%;
+    /* Red */
+    --chart-2: 0 0% 0%;
+    /* Black */
+    --chart-3: 48 100% 50%;
+    /* Yellow */
+    --chart-4: 0 0% 50%;
+    /* Grey */
+    --chart-5: 0 0% 80%;
+    /* Light Grey */
+
+    /* Risk Levels */
+    --risk-low: 142 70% 45%;
+    --risk-medium: 48 100% 50%;
+    --risk-high: 16 100% 50%;
+
+    /* Shadows - Sharp/Hard */
+    --shadow-soft: 4px 4px 0px 0px rgba(0, 0, 0, 0.05);
+    --shadow-card: 2px 2px 0px 0px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 6px 6px 0px 0px rgba(16, 16, 16, 1);
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 16 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 48 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 16 100% 50%;
+
+    --chart-1: 16 100% 50%;
+    --chart-2: 0 0% 100%;
+    --chart-3: 48 100% 50%;
+    --chart-4: 0 0% 60%;
+    --chart-5: 0 0% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+  }
+
+  /* Swiss Typography Utilities */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight font-bold;
+  }
+}
+
+@layer utilities {
+  .grid-panel {
+    @apply bg-card border border-border/50 relative overflow-hidden;
+  }
+
+  /* Grid lines background utility */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
+
+  .dark .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  .text-highlight {
+    @apply relative inline-block;
+  }
+
+  .text-highlight::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[0.3em] bg-accent/30 -z-10;
+  }
+
+  .hover-lift-hard {
+    @apply transition-transform duration-200;
+  }
+
+  .hover-lift-hard:hover {
+    @apply -translate-y-1 translate-x-1;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .dark .hover-lift-hard:hover {
+    box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 1);
+  }
+
+  .hero-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    color: hsl(var(--primary-foreground));
+  }
+}
